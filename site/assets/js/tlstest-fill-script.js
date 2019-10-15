@@ -4,8 +4,8 @@ $('#hostname').on('change keyup', function() {
 $('#email').on('change keyup', function() {
     changeScriptVars("EMAIL", $('#email').val());
 });
-$('#le-agree').on('change', function() {
-    if ($('#le-agree').is(':checked')) {
+$('#terms-agree').on('change', function() {
+    if ($('#terms-agree').is(':checked')) {
         changeScriptVars("AGREE", "true");
     }
     else {
