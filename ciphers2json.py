@@ -23,13 +23,6 @@ def get_ciphers(tlsversion):
         cipherlist=cipherlist+((cipher[3]),)
     return cipherlist
 
-#tls = []
-#tls.append({"openssl_version": subprocess.run(['openssl', 'version'], stdout=subprocess.PIPE).stdout.decode('utf-8').replace('\n', '')})
-#tls.append({"tls1.3ciphers": (get_ciphers("13"))})
-#tls.append({"tls1.2ciphers": (get_ciphers("12"))})
-#tls.append({"tls1.1ciphers": (get_ciphers("11"))})
-#tls.append({"tls1.0ciphers": (get_ciphers("10"))})
-
 tls = {'openssl_version': subprocess.run(['openssl', 'version'], stdout=subprocess.PIPE).stdout.decode('utf-8').replace('\n', '')}
 tls['tls1_3ciphers'] = get_ciphers("13")
 tls['tls1_2ciphers'] = get_ciphers("12")
