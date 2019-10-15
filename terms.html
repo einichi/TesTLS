@@ -1,0 +1,37 @@
+---
+title: TesTLS - Terms of Use
+appname: TesTLS
+repo: https://github.com/einichi/testls
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+		<title>{{ page.title }}</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>
+				{{ page.appname }}
+				<small class="text-muted">A quick way to test your app's TLS compatibility</small>
+			</h1>
+			<h2>Terms of Use</h2>
+			<p>To use {{ page.appname }} you must agree to the below disclaimer and the Let's Encrypt Subscriber Agreement and Privacy Policy.</p>
+			<p>By ticking the box on the {{ page.appname }} homepage, you acknowledge and agree to all of the below.</p>
+			<h3>Disclaimer</h3>
+			<p>THIS TOOL, "{{ page.appname }}", IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE PROVIDER OF THE TOOL, OR THE AUTHORS OR COPYRIGHT HOLDERS OF THE SOFTWARE USED BY THIS TOOL BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE TOOL OR THE USE OR OTHER DEALINGS IN THE TOOL.</p>
+			<h3>{{ page.appname }} Privacy Policy</h3>
+			<p>The website interface of {{ page.appname }} does not store or transmit any data you enter to any server. The resulting script that is generated for you however will transmit data to Let's Encrypt, see below for more details.</p>
+			<h3>Let's Encrypt Subscriber Agreement and Privacy Policy</h3>
+			<p>The hostname and email address you specify when using this tool will be transmitted to Let's Encrypt when you execute the generated script on your server; this data is processed in accordance to Let's Encrypt's policies at the time you execute the script. This website (TesTLS) does not store any data entered.</p>
+			<p>You can find an up-to-date version of Let's Encrypt's policies here: <a href="{{ page.le_url }}" target="_blank">{{ page.le_url }}</a></p>
+			<p>Upon execution of the {{ page.appname }} script, you will have agreed to the above policies from Let's Encrypt and an account will be created for you.</p>
+		</div>
+		<script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
