@@ -68,6 +68,8 @@ jobs:
         mv ciphers/ciphers.json site/_data/ciphers.json
         mv script/script.sh site/_includes/
         cd site
+        whoami
+        ls -lah
         jekyll build --trace
  
   build-and-deploy:
