@@ -28,5 +28,5 @@ tls['tls1_3ciphers'] = get_ciphers("13")
 tls['tls1_2ciphers'] = get_ciphers("12")
 tls['tls1_1ciphers'] = get_ciphers("11")
 tls['tls1_0ciphers'] = get_ciphers("10")
-with open('./site/_data/ciphers.json', 'w', encoding='utf-8') as f:
+with open('ciphers.json', 'w', encoding='utf-8') as f:
     json.dump(tls, f, ensure_ascii=False, indent=4)
