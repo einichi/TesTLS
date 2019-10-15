@@ -13,7 +13,7 @@ jobs:
         
       - shell: bash  
         run: |
-          dnf install openssl -y && python3 ciphers2json.py
+          dnf install openssl python3 -y && python3 ciphers2json.py
 
       - name: Upload generated cipher list
         uses: actions/upload-artifact@v1
