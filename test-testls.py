@@ -30,7 +30,7 @@ with open(outputfile, 'w') as output:
             output.write("dnf update -y --exclude=systemd*\n")
         elif "firewall-cmd" in line:
             output.write("# " + line)
-        elif "hostname-ctl" in line:
+        elif "hostnamectl" in line:
             output.write("# " + line)
         elif "systemctl" in line:
             output.write("# " + line)
