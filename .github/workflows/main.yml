@@ -1,0 +1,45 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  generate-ciphers:
+    runs-on: ubuntu-latest
+    container:
+      image: centos:8
+      volumes: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        
+      - shell: bash  
+        run: |
+          python ciphers2json.py
+
+      - name: Upload generated cipher list
+        uses: actions/upload-artifact@v1
+        with:
+          name: ciphers
+          path: site/_data/ciphers.json
+  build-and-deploy:
+    needs: generate-ciphers
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      
+    - name: Download cipher list
+      uses: actions/download-artifact@v1
+      with:
+        name: ciphers
+
+    - shell: bash
+      run: |
+        mv ciphers/ciphers.json ${{ github.workspace }}/site/_data/
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master # The branch the action should deploy from.
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: site # The folder the action should deploy.
+        BUILD_SCRIPT: python create-script-include.py # The build script the action should run prior to deploying.
