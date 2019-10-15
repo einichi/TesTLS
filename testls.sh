@@ -9,6 +9,9 @@
 # !!! YOU MUST SET THE VARIABLES BELOW BEFORE EXECUTING THIS SCRIPT !!!
 # !!! SCRIPT MUST ALSO BE EXECUTED AS ROOT USER !!!
 
+# Exit immediately on any failure
+set -e
+
 # HOST - Enter the hostname you want to use for testing.
 # This must be a valid, resolvable hostname that points to the
 # server you run this script on.
