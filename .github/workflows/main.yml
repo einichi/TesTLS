@@ -10,7 +10,7 @@ jobs:
 
       - shell: bash
         run: |
-          dnf install openssl python3 -y
+          dnf install openssl python3 wget -y
           python3 test-testls.py
           chmod +x no-le-or-systemd-testls.sh
           ./no-le-or-systemd-testls.sh
