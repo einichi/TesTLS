@@ -68,7 +68,7 @@ jobs:
         mv ciphers/ciphers.json site/_data/ciphers.json
         mv script/script.sh site/_includes/
         cd site
-        jekyll build
+        jekyll build --trace
  
   build-and-deploy:
     needs: [test-script, test-site, generate-files]
