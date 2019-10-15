@@ -131,7 +131,7 @@ systemctl start httpd
 # Run CertBot and have it generate our certs and install them for us
 /usr/local/bin/certbot-auto certonly --apache --non-interactive --agree-tos -m $EMAIL --domains $HOST
 # Have crontab run the CertBot renewal script occasionally, with LE's recommendations
-echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && /usr/local/bin/certbot-auto renew" | sudo tee -a /etc/crontab > /dev/null
+echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && /usr/local/bin/certbot-auto renew" | tee -a /etc/crontab > /dev/null
 # Create TLS vhost config
 cat > /etc/httpd/conf.d/$HOST.conf <<EOF
 <IfModule mod_ssl.c>
