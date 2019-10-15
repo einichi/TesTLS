@@ -12,10 +12,10 @@ To use this tool, visit: https://einichi.github.io/TesTLS
 
 ## Project outline
 
-- testls.sh - Base script that performs the installation and configuration of Apache to serve as a TLS testing endpoint with specific TLS protocols and associated ciphers
-- test-testls.py - Makes a copy of the base script, filling in vars and commenting out difficult deps for use in CI testing
-- create-script-include.py - Simply escapes the angle brackets in the HTML elements in the testls.sh script so they can be displayed properly on a webpage, then placing it into the _includes dir for the jekyll site
-- ciphers2json.py - Grabs all available ciphers for each TLS protocol and serialises them into a JSON file
-- site/index.html - Allows people to pick and choose their ciphers and generates a personalised installation script for them. Uses bootstrap, jquery, prism and some custom JS.
-- site/terms.html - Basic terms of use, including Let's Encrypt subscriber agreement info
-- site/assets/js/tlstest-fill-script.js - Hooks page events to update variables in the script and builds protocol and cipher strings based on selections made
+- **testls.sh** - Base script that performs the installation and configuration of Apache to serve as a TLS testing endpoint with specific TLS protocols and associated ciphers
+- **test-testls.py** - Makes a copy of the base script, filling in vars and commenting out difficult deps for use in CI testing
+- **create-script-include.py** - Simply escapes the angle brackets in the HTML elements in the testls.sh script so they can be displayed properly on a webpage, then placing it into the _includes dir for the jekyll site
+- **ciphers2json.py** - Grabs all available ciphers for each TLS protocol and serialises them into a JSON file
+- **site/index.html** - Allows people to pick and choose their ciphers and generates a personalised installation script for them. Uses bootstrap, jquery, prism and some custom JS.
+- **site/terms.html** - Basic terms of use, including Let's Encrypt subscriber agreement info
+- **site/assets/js/tlstest-fill-script.js** - Hooks page events to update variables in the script and builds protocol and cipher strings based on selections made
