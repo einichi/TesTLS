@@ -20,7 +20,9 @@ def get_ciphers(tlsversion):
     regex = re.findall("0x([0-9A-Z]{2}),0x([0-9A-Z]{2})(\s-\s)([\w\-_]+).*", ciphers)
     cipherlist = ()
     for cipher in regex:
-        cipherlist=cipherlist+((cipher[3]),)
+        # Remove DS ciphers as LetsEncrypt issues RSA certs
+        if ("DSS" not in cipher[3]) or ("DSA" not in cipher[3]):
+            cipherlist+=((cipher[3]),)
     return cipherlist
 
 tls = {'openssl_version': subprocess.run(['openssl', 'version'], stdout=subprocess.PIPE).stdout.decode('utf-8').replace('\n', '')}
