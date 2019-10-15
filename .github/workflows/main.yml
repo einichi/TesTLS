@@ -40,6 +40,7 @@ jobs:
   test-site:
     needs: generate-ciphers
     runs-on: ubuntu-latest
+    container: jekyll/builder:latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
