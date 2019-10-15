@@ -32,7 +32,7 @@ repo: https://github.com/einichi/testls
 				<li>A fresh server running {{ page.distro }} {{ page.distro_version }} or greater</li>
 				<li>A hostname pointing to that server</li>
 				<li>An email address (for Let's Encrypt's certs)</li>
-				<li>Agreement to Let's Encrypt's policies</li>
+				<li>Agreement to {{ page.appname}}'s terms and Let's Encrypt's policies</li>
 			</ul>
 			<h2>Basic Settings</h2>
 			<div class="row">
@@ -49,9 +49,9 @@ repo: https://github.com/einichi/testls
 			</div>
 			<hr class="mb-4">
 			<div class="checkbox mb-3">
-				<p>The hostname and email address you specify here will be transmitted to Let's Encrypt when you execute the generated script on your server; this data be processed in accordance to Let's Encrypt's policies at the time you execute the script. This website ({{ page.appname }}) does not store any data entered.<br>By checking the below box, you are agreeing to Let's Encrypt's Subscriber Agreement and Privacy Policy, both of which can be found <a href="https://letsencrypt.org/repository/" target="_blank">here</a>.</p>
-				<input type="checkbox" id="le-agree">
-				<label for="le-agree">I understand and agree to the above statement.</label>
+				<p>By checking the below box, you agree to the <a href="terms.html" target="_blank">Terms of Use</a>. Please ensure you read it before proceeding. It is not long and includes information on how your data is handled.</p>
+				<input type="checkbox" id="terms-agree">
+				<label for="terms-agree">I have read, understand and agree to the Terms of Use linked above.</label>
 			</div>
 			<h2>Cipher Settings</h2>
 			<p>Below are listed the ciphers available to each version of the TLS protocol. If you enable one cipher under a particular TLS protocol, that protocol will be enabled on your server, if no ciphers are selected, that protocol will be disabled.</p>

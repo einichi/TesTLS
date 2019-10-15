@@ -16,10 +16,10 @@ HOST=""
 # EMAIL - Used for registering with LetsEncrypt just in case you
 # need to recover certs for your hostname
 EMAIL=""
-# AGREE - Set this to "true" if you have read and agree with the
-# LetsEncrypt Subscriber Agreement and their Privacy Policy.
-# Latest versions of those documents available at the link below:
-# https://letsencrypt.org/repository/
+# AGREE - Set this to "true" if you have read, understood and agree with the Terms of Use for TesTLS.
+# The Terms are available in the git repository linked at the top of this script or on the TesTLS website.
+# http://einichi.github.io/testls/terms.html
+# Do not set this to true if you have not read or otherwise do not agree with these terms.
 AGREE="false"
 # PROTOCOLS - Specify your TLS protocols here as per Apache documentation
 # https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslprotocol
