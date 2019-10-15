@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: centos:8
-      volumes: ${{ github.workspace }}
+      volumes: 
+        - ${{ github.workspace }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
