@@ -38,6 +38,7 @@ jobs:
           ./no-le-or-systemd-testls.sh
 
   test-site:
+    needs: generate-ciphers
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -45,9 +46,9 @@ jobs:
         
     - shell: bash
       run: |
+        mkdir -p site/_data site/_includes
         python3 create-script-include.py
         python3 ciphers2json.py
-        mkdir -p site/_data
         mv ciphers/ciphers.json site/ciphers.json
         cd site
         jekyll build
@@ -66,8 +67,7 @@ jobs:
 
     - shell: bash
       run: |
-        mkdir -p ${{ github.workspace }}/site/_data/
-        mkdir -p ${{ github.workspace }}/site/_includes/
+        mkdir -p ${{ github.workspace }}/site/_data/ ${{ github.workspace }}/site/_includes/
         mv ciphers/ciphers.json ${{ github.workspace }}/site/_data/
 
     - name: Build and Deploy
