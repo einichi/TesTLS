@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 scriptname='testls.sh'
-outputfile='site/_includes/script.sh'
+outputfile='script.sh'
 
 with open(outputfile, 'w') as output:
     for line in open(scriptname):
