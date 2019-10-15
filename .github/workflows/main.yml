@@ -64,12 +64,11 @@ jobs:
         
     - shell: bash
       run: |
-        mkdir -p site/_data site/_includes site/.jekyll-cache
+        mkdir -p site/_data site/_includes
         mv ciphers/ciphers.json site/_data/ciphers.json
         mv script/script.sh site/_includes/
         cd site
-        whoami
-        ls -lah
+        chown -r root:root ./
         jekyll build --trace
  
   build-and-deploy:
