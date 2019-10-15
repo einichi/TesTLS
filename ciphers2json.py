@@ -21,7 +21,7 @@ def get_ciphers(tlsversion):
     cipherlist = ()
     for cipher in regex:
         # Remove DS ciphers as LetsEncrypt issues RSA certs
-        if ("DSS" not in cipher[3]) or ("DSA" not in cipher[3]):
+        if not ("DSA" in cipher[3] or "DSS" in cipher[3]):
             cipherlist+=((cipher[3]),)
     return cipherlist
 
