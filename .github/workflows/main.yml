@@ -13,14 +13,14 @@ jobs:
         
       - shell: bash  
         run: |
-          ls -LR
-          # dnf install openssl python3 -y && python3 ciphers2json.py
+          dnf install openssl python3 -y
+          python3 ciphers2json.py
 
       - name: Upload generated cipher list
         uses: actions/upload-artifact@v1
         with:
           name: ciphers
-          path: site/_data/ciphers.json
+          path: ciphers.json
   build-and-deploy:
     needs: generate-ciphers
     runs-on: ubuntu-latest
@@ -35,6 +35,8 @@ jobs:
 
     - shell: bash
       run: |
+        mkdir -p ${{ github.workspace }}/site/_data/
+        mkdir -p ${{ github.workspace }}/site/_includes/
         mv ciphers/ciphers.json ${{ github.workspace }}/site/_data/
 
     - name: Build and Deploy
