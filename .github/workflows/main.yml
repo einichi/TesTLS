@@ -47,7 +47,7 @@ jobs:
   test-site:
     needs: generate-files
     runs-on: ubuntu-latest
-    container: jekyll/builder:latest
+    container: jekyll/jekyll
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -68,7 +68,6 @@ jobs:
         mv ciphers/ciphers.json site/_data/ciphers.json
         mv script/script.sh site/_includes/
         cd site
-        chown -R root:root ./
         jekyll build --trace
  
   build-and-deploy:
