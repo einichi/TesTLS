@@ -82,6 +82,11 @@ jobs:
       with:
         name: ciphers
 
+    - name: Download generated HTML-escaped script
+      uses: actions/download-artifact@v1
+      with:
+        name: script
+
     - shell: bash
       run: |
         mkdir -p ${{ github.workspace }}/site/_data/ ${{ github.workspace }}/site/_includes/
