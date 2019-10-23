@@ -71,7 +71,7 @@ jobs:
   #       jekyll build --trace
  
   build-and-deploy:
-    needs: [test-script, test-site, generate-files]
+    needs: [test-script, generate-files]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
