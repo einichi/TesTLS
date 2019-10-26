@@ -49,13 +49,12 @@ make sure you also check the configuration variables\n
 inside the script near the top." 
    exit 1
 fi
-# Check if agreed to LE terms
-# Checking string instead of boolean due to issue with Prism bash plugin not recognising booleans
+# Check if agreed to terms
+# Checking string instead of boolean due to peculiar issue with Prism syntax highlighting bash plugin not recognising booleans
 if ! [[ $AGREE == "true" ]] ; then
-   echo "This script makes use of the LetsEncrypt service and you must\n
-agree to their Subscriber Agreement and Privacy Policy before continuing.\n
-You can do this by setting the AGREE value in this script to TRUE and then\n
-executing this script again."
+   echo "You must read and agree to the terms here: http://einichi.github.io/testls/terms.html\n
+before executing this script. Set the AGREE var to true if you agree. You can also find the terms\n
+in the Git repo under site/terms.html."
    exit 2
 fi
 # Check if config variables are set
