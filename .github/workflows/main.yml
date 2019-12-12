@@ -1,5 +1,10 @@
 name: Test, build and deploy
-on: [push]
+on: 
+  schedule:
+    # once a month
+    - cron : '0 0 1 * *'
+  push:
+    branches-ignore: gh-pages
 jobs:
 
   generate-files:
@@ -43,32 +48,6 @@ jobs:
           python3 test-testls.py
           chmod +x no-le-or-systemd-testls.sh
           ./no-le-or-systemd-testls.sh
-
-  # test-site:
-  #   needs: generate-files
-  #   runs-on: ubuntu-latest
-  #   container: jekyll/jekyll
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@master
-
-  #   - name: Download cipher list
-  #     uses: actions/download-artifact@v1
-  #     with:
-  #       name: ciphers
-
-  #   - name: Download HTML-escaped script
-  #     uses: actions/download-artifact@v1
-  #     with:
-  #       name: script
-        
-  #   - shell: bash
-  #     run: |
-  #       mkdir -p site/_data site/_includes
-  #       mv ciphers/ciphers.json site/_data/ciphers.json
-  #       mv script/script.sh site/_includes/
-  #       cd site
-  #       jekyll build --trace
  
   build-and-deploy:
     needs: [test-script, generate-files]
@@ -94,7 +73,7 @@ jobs:
         mv script/script.sh ${{ github.workspace }}/site/_includes/
 
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
+      uses: JamesIves/github-pages-deploy-action@releases/v3
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: master # The branch the action should deploy from.
