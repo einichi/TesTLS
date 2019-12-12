@@ -15,7 +15,7 @@ jobs:
         - ${{ github.workspace }}
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
         
       - shell: bash  
         run: |
@@ -40,7 +40,7 @@ jobs:
     container: centos:8
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - shell: bash
         run: |
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v1
       
     - name: Download cipher list
       uses: actions/download-artifact@v1
