@@ -8,7 +8,7 @@ TesTLS is primarily intended for organisations who are either deprecating old ve
 
 It could also be used for improving your existing cipher policy to increase security in a situation where you may not otherwise be able to yet disable TLS 1.1 and lower.
 
-To use this tool, visit: https://einichi.github.io/TesTLS
+To use this tool, visit: https://testls.tru.io
 
 ## Project outline
 
