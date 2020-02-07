@@ -15,7 +15,7 @@ with open(outputfile, 'w') as output:
             if line == "EOF\n":
                 blockcomment = False
         elif "HOST=" in line:
-            output.write("HOST=\"test.hostname\"\n")
+            output.write("HOST=\"github.com\"\n")
         elif "EMAIL=" in line:
             output.write("EMAIL=\"test@email.address\"\n")
         elif "AGREE=" in line:
