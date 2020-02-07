@@ -44,7 +44,7 @@ jobs:
 
       - shell: bash
         run: |
-          dnf install openssl python3 wget -y
+          dnf install openssl python3 wget bind-utils -y
           python3 test-testls.py
           chmod +x no-le-or-systemd-testls.sh
           ./no-le-or-systemd-testls.sh
