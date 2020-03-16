@@ -1,12 +1,9 @@
 # TesTLS
+**WARNING**: The implementation of TLS 1.3 cipher selection in this project is currently broken. Do not use TLS 1.3 ciphers for testing with this project.
 Pick your ciphers and build a test TLS endpoint for testing against your applications in less than 5 minutes!
 
 ## About
 Tell TesTLS what TLS versions and associated ciphers you want to enable and it will generate a script that configures a CentOS 8 server exactly as you specify. It autoconfigures Apache, grabs certificates from LetsEncrypt and applies your TLS settings.
-
-TesTLS is primarily intended for organisations who are either deprecating old versions of TLS and want to test their applications against a TLS1.2/1.3 server to see if they can negotiate a TLS session successfully, or are otherwise revising their TLS/cipher policy.
-
-It could also be used for improving your existing cipher policy to increase security in a situation where you may not otherwise be able to yet disable TLS 1.1 and lower.
 
 To use this tool, visit: https://testls.tru.io
 
