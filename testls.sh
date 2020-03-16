@@ -78,6 +78,12 @@ if [[ -z $HONOR ]] ; then
     echo "Honor variable is not set."
     exit 7
 fi
+# Check if hostname is resolvable
+if ! host $HOST; then
+    echo "$HOST is not resolvable, check spelling in HOST var and your the domain's DNS settings and try again."
+    exit 8
+fi
+
 # Update system packages
 dnf update -y
 # Set system hostname to user-provided hostname
