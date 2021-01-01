@@ -1,5 +1,5 @@
 {
-    "openssl_version": "OpenSSL 1.1.1c FIPS  28 May 2019",
+    "openssl_version": "OpenSSL 1.1.1g FIPS  21 Apr 2020",
     "tls1_3ciphers": [
         "TLS_AES_256_GCM_SHA384",
         "TLS_CHACHA20_POLY1305_SHA256",
