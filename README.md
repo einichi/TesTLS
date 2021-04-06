@@ -1,7 +1,7 @@
 # TesTLS
 Pick your ciphers and build a test TLS endpoint for testing against your applications in less than 5 minutes!
 
-**WARNING**: The implementation of TLS 1.3 cipher selection in this project is currently broken. Do not use TLS 1.3 cipher    s for testing with this project.
+**WARNING**: This project is unfinished. The implementation of TLS 1.3 cipher selection in this project is currently broken. Do not use TLS 1.3 ciphers for testing with this project.
 ## About
 Tell TesTLS what TLS versions and associated ciphers you want to enable and it will generate a script that configures a CentOS 8 server exactly as you specify. It autoconfigures Apache, grabs certificates from LetsEncrypt and applies your TLS settings.
 
