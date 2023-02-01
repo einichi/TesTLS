@@ -9,7 +9,7 @@ jobs:
   generate-files:
     runs-on: ubuntu-latest
     container:
-      image: centos:stream8
+      image: rockylinux:8
       volumes:
         - ${{ github.workspace }}
     steps:
