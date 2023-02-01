@@ -1,34 +1,33 @@
 name: Test, build and deploy
-on: 
+on:
   schedule:
     # once a month
-    - cron : '0 0 1 * *'
+    - cron: "0 0 1 * *"
   push:
     branches-ignore: gh-pages
 jobs:
-
   generate-files:
     runs-on: ubuntu-latest
     container:
-      image: centos:8
-      volumes: 
+      image: centos:stream8
+      volumes:
         - ${{ github.workspace }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-        
-      - shell: bash  
+
+      - shell: bash
         run: |
           dnf install openssl python3 -y
           python3 ciphers2json.py
-          python3 create-script-include.py 
+          python3 create-script-include.py
 
       - name: Upload generated cipher list
         uses: actions/upload-artifact@v1
         with:
           name: ciphers
           path: ciphers.json
-      
+
       - name: Upload generated HTML-escaped script
         uses: actions/upload-artifact@v1
         with:
@@ -48,34 +47,34 @@ jobs:
           python3 test-testls.py
           chmod +x no-le-or-systemd-testls.sh
           ./no-le-or-systemd-testls.sh
- 
+
   build-and-deploy:
     needs: [test-script, generate-files]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-      
-    - name: Download cipher list
-      uses: actions/download-artifact@v1
-      with:
-        name: ciphers
+      - name: Checkout
+        uses: actions/checkout@v1
 
-    - name: Download generated HTML-escaped script
-      uses: actions/download-artifact@v1
-      with:
-        name: script
+      - name: Download cipher list
+        uses: actions/download-artifact@v1
+        with:
+          name: ciphers
 
-    - shell: bash
-      run: |
-        mkdir -p ${{ github.workspace }}/site/_data/ ${{ github.workspace }}/site/_includes/
-        mv ciphers/ciphers.json ${{ github.workspace }}/site/_data/
-        mv script/script.sh ${{ github.workspace }}/site/_includes/
+      - name: Download generated HTML-escaped script
+        uses: actions/download-artifact@v1
+        with:
+          name: script
 
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: site # The folder the action should deploy.
+      - shell: bash
+        run: |
+          mkdir -p ${{ github.workspace }}/site/_data/ ${{ github.workspace }}/site/_includes/
+          mv ciphers/ciphers.json ${{ github.workspace }}/site/_data/
+          mv script/script.sh ${{ github.workspace }}/site/_includes/
+
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: site # The folder the action should deploy.
