@@ -1,3 +1,8 @@
+# Project Archived
+This project is outdated and **you should not use it**.
+
+Consider the rest of this readme outdated too.
+
 # TesTLS
 Pick your ciphers and build a test TLS endpoint for testing against your applications in less than 5 minutes!
 
@@ -5,7 +10,7 @@ Pick your ciphers and build a test TLS endpoint for testing against your applica
 ## About
 Tell TesTLS what TLS versions and associated ciphers you want to enable and it will generate a script that configures a CentOS 8 server exactly as you specify. It autoconfigures Apache, grabs certificates from LetsEncrypt and applies your TLS settings.
 
-To use this tool, visit: https://testls.tru.io
+To use this tool, visit: https://testls.tru.io (dead)
 
 ## Project outline
 
